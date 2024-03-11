@@ -145,3 +145,8 @@
   cursor: pointer;
   border: 8px soild red;
 }
+
+.user-cart{
+  padding: 10px;
+  border: 1px solid black;
+}

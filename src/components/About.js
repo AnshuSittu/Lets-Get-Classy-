@@ -1,4 +1,6 @@
 import React from 'react'
+import User from './User';
+import UserClass from './UserClass';
 
 
 const About = () => {
@@ -6,6 +8,8 @@ const About = () => {
         <div>
             <h1>About Us</h1>
             <h2>This is Namste Food App</h2>
+            <User name={"Anshu Raj Singh via Props"}/>
+            <UserClass/>
         </div>
     )
 }
