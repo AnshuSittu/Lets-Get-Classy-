@@ -5,43 +5,42 @@ class UserClass extends React.Component {
     super(props);
 
     this.state = {
-      count: 0,
-      count2: 1,
+      userInfo: {
+        name: "Dummy Name",
+        location: "default",
+      },
     };
-    console.log(this.props.name +"Child constructor");
   }
 
-  componentDidMount(){
-    console.log(this.props.name + "Child Component Did Mount")
+  async componentDidMount() {
+    // API CALL
+    const data = await fetch("https://api.github.com/users/anshusittu");
+    const json = await data.json();
+
+    this.setState({
+      userInfo: json,
+    });
+
+    console.log(json);
+  }
+
+  componentDidUpdate() {
+    console.log("component did update");
   }
 
   render() {
-    const { name, location } = this.props;
-    const { count } = this.state;
-
-    console.log(this.props.name +"Child Render");
-
+    const { name, location, avatar_url, company, bio } = this.state.userInfo;
     return (
       <div className="user-cart">
         <h1 style={{ textAlign: "Center" }}>
           This is coming from Class based Component
         </h1>
+        <img src={avatar_url} />
         <h2>Name: {name}</h2>
         <h3>Location: {location}</h3>
+        <h3>Company: {company}</h3>
         <h3>Contact: anshu.possible@gmail.com</h3>
-        <h4>
-          Count = {count}
-          <button
-            onClick={() => {
-              this.setState({
-                // NEVER UPDATE STATE DIRECTLY
-                count: this.state.count + 1,
-              });
-            }}
-          >
-            Click Me
-          </button>
-        </h4>
+        <p>BIO:{bio}</p>
       </div>
     );
   }
