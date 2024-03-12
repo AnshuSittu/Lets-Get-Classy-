@@ -28,6 +28,11 @@ class UserClass extends React.Component {
     console.log("component did update");
   }
 
+  componentWillUnmount() {
+    console.log("Componet is unmounted")
+  }
+  
+
   render() {
     const { name, location, avatar_url, company, bio } = this.state.userInfo;
     return (
