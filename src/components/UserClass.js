@@ -8,14 +8,18 @@ class UserClass extends React.Component {
       count: 0,
       count2: 1,
     };
-    console.log("constructor")
+    console.log("Chile constructor");
+  }
+
+  componentDidMount(){
+    console.log("Child Component Did Mount")
   }
 
   render() {
     const { name, location } = this.props;
     const { count } = this.state;
 
-   console.log("Render")
+    console.log("Child Render");
 
     return (
       <div className="user-cart">
@@ -30,9 +34,8 @@ class UserClass extends React.Component {
           <button
             onClick={() => {
               this.setState({
-                // NEVER UPDATE STATE DIRECTLY 
+                // NEVER UPDATE STATE DIRECTLY
                 count: this.state.count + 1,
-                
               });
             }}
           >
