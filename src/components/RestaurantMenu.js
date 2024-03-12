@@ -41,7 +41,8 @@ const RestaurantMenu = () => {
       </h2>
       <h3>Menu</h3>
       <ul>
-        {itemCards.map((item) => (
+      {/* Added Optional Chaning to avoid this error if item list is not there */}
+        {itemCards?.map((item) => (
           <li className="menu-list" key={item.card.info.id}>
             {item.card.info.name} - ₹ {item.card.info.price / 100  || item.card.info.defaultPrice / 100}
           </li>
